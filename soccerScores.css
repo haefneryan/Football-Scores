@@ -1,0 +1,16 @@
+body {
+    background-color: lightgrey;
+    text-align: center;
+}
+
+.val {
+    display: inline;
+}
+
+.centered {
+    text-align: center;
+}
+
+.leagues {
+    display: block;
+}

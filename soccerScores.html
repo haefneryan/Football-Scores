@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<script src="soccerScores.js"></script>
+		<link rel="stylesheet" type="text/css" href="soccerScores.css">
+
+		<title>World Football Scores</title>
+	</head>
+
+	<body onload="loadData()">
+		<div>
+			<h1>Scores</h1>
+			<select name='league' id='league'>
+				<option value='all_select'>All Leagues</option>
+				<option value='scottishPremiership_select'>Scottish Premiership</option>
+				<option value='superliga_select'>Superliga</option>
+			</select>
+			<input type='date' id='date' name='date' onload="getDate()">
+			<button id='submit' onclick='submitchange()'>Submit</button>
+			<br><br>
+			<div id='scottishPremiership_scores' class='leagues'>
+				<h2>Scottish Premiership</h2>
+				<div id='scottishPremiership'></div>
+				<br>
+			</div>
+			<div id='superliga_scores' class='leagues'>
+				<h2>Superliga</h2>
+				<div id='superliga'></div>
+			</div>
+		</div>
+
+	</body>
+
+</html>
+
