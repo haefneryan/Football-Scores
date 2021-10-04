@@ -1,5 +1,8 @@
+let today = new Date();
+let date = today;
+
 function getDate() {
-    var today = new Date();
+    //var today = new Date();
     var dd = today.getDate();
     var mm = today.getMonth()+1; //January is 0!
     var yyyy = today.getFullYear();
@@ -13,21 +16,16 @@ function getDate() {
     } 
   
     today = yyyy + '-' + mm + '-' + dd;
-    console.log(today);
+    //console.log(today);
     document.getElementById("date").value = today;
 }
-   
-window.onload = function() {
-    getDate();
-};
 
 function loadData(){
     let request = new XMLHttpRequest();
 
     let api_token = 'CHPO1UMSVjcgZA8oI6xmeLIxzAtVDXeiY6fypOF7npPkB7oqvjniWkg5Z2np';
     let includes = '&include=localTeam,visitorTeam,events,league';
-    let date = '2021-10-03'
-    //date = today;
+    //console.log(date);
     let url = 'https://soccer.sportmonks.com/api/v2.0/fixtures/date/' + date + '?api_token=' + api_token + includes;
 
     request.open('GET', url, true);
@@ -71,11 +69,15 @@ function loadData(){
         }
     }
     request.send();
+
 }
 
 
 
 function submitchange() {
+    document.getElementById('scottishPremiership').innerHTML = '';
+    document.getElementById('superliga').innerHTML = '';
+
     if(document.getElementById('league').value == 'scottishPremiership_select'){
         document.getElementById('superliga_scores').style.display = 'none';
         document.getElementById('scottishPremiership_scores').style.display = 'block';
@@ -90,8 +92,7 @@ function submitchange() {
     }
 
     date = document.getElementById('date').value;
-    console.log(document.getElementById('date').value);
-
+    loadData();
 }
 
 

@@ -9,7 +9,7 @@
 		<title>World Football Scores</title>
 	</head>
 
-	<body onload="loadData()">
+	<body onload="getDate()" onload="loadData()">
 		<div>
 			<h1>Scores</h1>
 			<select name='league' id='league'>
@@ -17,7 +17,7 @@
 				<option value='scottishPremiership_select'>Scottish Premiership</option>
 				<option value='superliga_select'>Superliga</option>
 			</select>
-			<input type='date' id='date' name='date' onload="getDate()">
+			<input type='date' id='date' name='date'>
 			<button id='submit' onclick='submitchange()'>Submit</button>
 			<br><br>
 			<div id='scottishPremiership_scores' class='leagues'>
