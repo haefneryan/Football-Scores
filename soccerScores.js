@@ -2,10 +2,10 @@ let today = new Date();
 let date = today;
 
 function getDate() {
-    //var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth()+1; //January is 0!
-    var yyyy = today.getFullYear();
+    //let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth()+1; //January is 0!
+    let yyyy = today.getFullYear();
   
     if(dd<10) {
         dd = '0'+dd
@@ -43,7 +43,10 @@ function loadData(){
                 JSON.stringify(response.data[i].localTeam.data.name),
                 JSON.stringify(response.data[i].scores.localteam_score),
                 JSON.stringify(response.data[i].scores.visitorteam_score),
-                JSON.stringify(response.data[i].visitorTeam.data.name)
+                JSON.stringify(response.data[i].visitorTeam.data.name),
+                JSON.stringify(response.data[i].league.data.logo_path),
+                JSON.stringify(response.data[i].localTeam.data.logo_path),
+                JSON.stringify(response.data[i].visitorTeam.data.logo_path)
             ];  
         }
 
@@ -59,13 +62,25 @@ function loadData(){
 
         for(let j=0; j<x; j++){
             if(matchUp[j][0] == 'Premiership'){
-                document.getElementById('scottishPremiership').innerHTML += "<div id=matchUp_'" + j + "'><br><div id='homeTeam_" + j + "' class='val'>" + matchUp[j][1] + "</div><div id='homeTeamScore_" + j + "' class='val'> " + matchUp[j][2] + " </div><div class='val centered'>-</div><div id='awayTeamScore_" + j + "' class='val'> " + matchUp[j][3] + " </div><div id='awayTeam_" + j + "' class='val'>" + matchUp[j][4] + "</div></div>"
+                document.getElementById('scottishPremiershipLogo').src = matchUp[j][5];
+                document.getElementById('scottishPremiershipName').innerHTML = 'Scottish ' + matchUp[j][0];
+                document.getElementById('scottishPremiership').innerHTML += "<br><div id=matchUp_'" + j + "' class='matchUp'><div class='home'><img src=" + matchUp[j][6] + " class='teamLogo'><div id='homeTeam_" + j + "' class='val homeTeam'>" + matchUp[j][1] + "</div><div id='homeTeamScore_" + j + "'class='val score'>" + matchUp[j][2] + "</div></div><div class='val' id='dash'>-</div><div class='away'><div id='awayTeamScore_" + j + "' class='val score'>" + matchUp[j][3] + "</div><div id='awayTeam_" + j + "' class='val awayTeam'>" + matchUp[j][4] + "<img src=" + matchUp[j][7] + " class='teamLogo'></div></div></div>" 
             }
         }
         for(let j=0; j<x; j++){
             if(matchUp[j][0] == 'Superliga'){
-                document.getElementById('superliga').innerHTML += "<div id=matchUp_'" + j + "'><br><div id='homeTeam_" + j + "' class='val'>" + matchUp[j][1] + "</div><div id='homeTeamScore_" + j + "' class='val'> " + matchUp[j][2] + " </div><div class='val centered'>-</div><div id='awayTeamScore_" + j + "' class='val'> " + matchUp[j][3] + " </div><div id='awayTeam_" + j + "' class='val'>" + matchUp[j][4] + "</div></div>"
+                document.getElementById('superligaLogo').src = matchUp[j][5];
+                document.getElementById('superligaName').innerHTML = 'Danish ' + matchUp[j][0];
+                document.getElementById('superliga').innerHTML += "<br><div id=matchUp_'" + j + "' class='matchUp'><div class='home'><img src=" + matchUp[j][6] + " class='teamLogo'><div id='homeTeam_" + j + "' class='val homeTeam'>" + matchUp[j][1] + "</div><div id='homeTeamScore_" + j + "'class='val score'>" + matchUp[j][2] + "</div></div><div class='val' id='dash'>-</div><div class='away'><div id='awayTeamScore_" + j + "' class='val score'>" + matchUp[j][3] + "</div><div id='awayTeam_" + j + "' class='val awayTeam'>" + matchUp[j][4] + "<img src=" + matchUp[j][7] + " class='teamLogo'></div></div></div>"  
             }
+        }
+
+        if(!response.data.length){
+            console.log('none')
+        }
+
+        if(!response.length){
+            console.log('none')
         }
     }
     request.send();
