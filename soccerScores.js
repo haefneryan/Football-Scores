@@ -1,5 +1,6 @@
 let today = new Date();
 let date = today;
+let dataLoaded = false;
 
 function getDate() {
     //let today = new Date();
@@ -29,12 +30,16 @@ function loadData(){
     let url = 'https://soccer.sportmonks.com/api/v2.0/fixtures/date/' + date + '?api_token=' + api_token + includes;
 
     request.open('GET', url, true);
-
     let matchUp = [];
 
     request.onload = function() {
         let response = JSON.parse(this.response);
-        console.log(response.data);
+        dataLoaded = true;
+        console.log(response);
+
+        if(JSON.stringify(response.data) == []) {
+            console.log('the response is null');
+        }
 
         let x = response.data.length;
         for(let i=0; i<x; i++){
@@ -59,6 +64,7 @@ function loadData(){
         }
 
         console.log(matchUp);
+        console.log(dataLoaded);
 
         for(let j=0; j<x; j++){
             if(matchUp[j][0] == 'Premiership'){
@@ -75,21 +81,27 @@ function loadData(){
             }
         }
 
-        if(!response.data.length){
-            console.log('none')
+        for(let i=0; i<x; i++){
+            if(matchUp[i][2] > matchUp[i][3]){
+                document.getElementById('homeTeamScore_' + i).style.backgroundColor = 'green';
+                document.getElementById('awayTeamScore_' + i).style.backgroundColor = 'red';
+            }
+            if(matchUp[i][2] < matchUp[i][3]){
+                document.getElementById('homeTeamScore_' + i).style.backgroundColor = 'red';
+                document.getElementById('awayTeamScore_' + i).style.backgroundColor = 'green';
+            }
+            if(matchUp[i][2] == matchUp[i][3]){
+                document.getElementById('homeTeamScore_' + i).style.backgroundColor = 'grey';
+                document.getElementById('awayTeamScore_' + i).style.backgroundColor = 'grey';
+            }
         }
 
-        if(!response.length){
-            console.log('none')
-        }
     }
     request.send();
-
 }
 
-
-
 function submitchange() {
+    
     document.getElementById('scottishPremiership').innerHTML = '';
     document.getElementById('superliga').innerHTML = '';
 
@@ -108,6 +120,17 @@ function submitchange() {
 
     date = document.getElementById('date').value;
     loadData();
+}
+
+console.log(dataLoaded);
+
+function checkDataLoaded(){
+    console.log('test')
+    if(dataLoaded == false) {
+        console.log('data not loaded');
+        document.getElementById('scores').style.display = 'none';
+        //document.getElementById('scores').innerHTML = 'No Games Today';
+    }
 }
 
 

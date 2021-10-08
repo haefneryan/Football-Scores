@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<script src="soccerTable.js"></script>
+		<link rel="stylesheet" type="text/css" href="soccerTable.css">
+
+		<title>World Soccer Table</title>
+	</head>
+	<nav class='nav'>
+		<button class='navButton'><a href="soccerScores.html">Scores</a></button> |
+		<button class='navButton'><a href="soccerTable.html">Table</a></button>
+	</nav>
+	<br><br>
+
+	<body onload="loadData()" onload="checkDataLoaded()">
+		<div>
+			<div class='pageHeader'><h1>2020/21 League Tables</h1>
+				<select name='league' id='league'>
+					<option value='all_select'>All Leagues</option>
+					<option value='scottishPremiership_select'>Scottish Premiership</option>
+					<option value='superliga_select'>Superliga</option>
+				</select>
+				<button id='submit' onclick='submitchange()'>Submit</button>
+			</div>
+			<br><br>
+			<div id='page'>
+				<div id='scottishPremiership'>
+					<h2 id='scottishPremiershipName' class='header'>Scottish Premiership</h2>
+					<div id='scottishPremiershipTableHeader' class='headerBox'></div>
+					<!-- <img id='scottishPremiershipLogo' class='logo'> -->
+					<div id='scottishPremiershipTable'></div>
+				</div>
+				<br>
+				<div>
+				<div id='superliga_scores' class='leagues'>
+							<h2 id='superligaName' class='header'>Danish Superliga</h2>
+							<!-- <img id='superligaLogo' class='logo'> -->
+						<div id='superliga'></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br><br>
+
+	</body>
+
+</html>
+

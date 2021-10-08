@@ -1,0 +1,96 @@
+.pageHeader {
+    text-align: center;
+}
+
+body {
+    color: white;
+    background-color: #262626;
+    font-size: 20px;
+    display: inline;
+}
+
+.logo {
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    vertical-align: middle;
+    padding: 10px;
+    background-color: rgb(255, 255, 255, 1.0);
+}
+
+.teamLogo {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    vertical-align:middle;
+    padding: 10px;
+}
+
+.header {
+    display: inline;
+    padding: 10px;
+    font-size: 30px;
+}
+
+.headerBox {
+    border-bottom: 1px solid grey;
+    width: 75%;
+    padding: 10px;
+    margin: auto;
+}
+
+.tableRow {
+    padding: 10px;
+    width: 80%;
+    margin: auto;
+    display: block;
+    border-bottom: 1px solid grey;
+}
+
+.position {
+    width: 100px;
+    text-align: center;
+    position: relative;
+    float: left;
+    
+}
+
+.teamName {
+    width: 300px;
+    display: inline-block;
+    text-align: left;
+}
+
+.tableData {
+    width: 50px;
+    text-align: center;
+    display: inline-block;
+}
+
+.headerBox {
+    font-size: 15px;
+    color: grey;
+    width: 80%;
+    height: 20px;
+}
+
+.nav {
+    position: fixed;
+    width: 100%;
+    background-color: #262626;
+    color: white;
+    height: 50px;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.navButton {
+    background-color: transparent;
+    border: 1px solid white;
+    height: 50px;
+    width: 100px;
+}

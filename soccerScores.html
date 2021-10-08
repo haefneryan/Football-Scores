@@ -8,8 +8,13 @@
 
 		<title>World Soccer Scores</title>
 	</head>
-
-	<body onload="getDate()" onload="loadData()">
+	<nav class='nav'>
+		<button class='navButton'><a href="soccerScores.html">Scores</a></button> |
+		<button class='navButton'><a href="soccerTable.html">Table</a></button>
+	</nav>
+	<br><br>
+	
+	<body onload="getDate()" onload="loadData()" onload="checkDataLoaded()">
 		<div>
 			<h1>Scores</h1>
 			<select name='league' id='league'>
@@ -20,18 +25,20 @@
 			<input type='date' id='date' name='date'>
 			<button id='submit' onclick='submitchange()'>Submit</button>
 			<br><br>
-			<div id='scottishPremiership_scores' class='leagues'>
-				<div class='headerBox'>
-					<h2 id='scottishPremiershipName' class='header'></h2><img id='scottishPremiershipLogo' class='logo'>
+			<div id='scores'>
+				<div id='scottishPremiership_scores' class='leagues'>
+					<div class='headerBox'>
+						<h2 id='scottishPremiershipName' class='header'></h2><img id='scottishPremiershipLogo' class='logo'>
+					</div>
+					<div id='scottishPremiership'></div>
+					<br>
 				</div>
-				<div id='scottishPremiership'></div>
-				<br>
-			</div>
-			<div id='superliga_scores' class='leagues'>
-				<div class='headerBox'>
-					<h2 id='superligaName' class='header'></h2><img id='superligaLogo' class='logo'>
+				<div id='superliga_scores' class='leagues'>
+					<div class='headerBox'>
+						<h2 id='superligaName' class='header'></h2><img id='superligaLogo' class='logo'>
+					</div>
+					<div id='superliga'></div>
 				</div>
-				<div id='superliga'></div>
 			</div>
 		</div>
 		<br><br>
