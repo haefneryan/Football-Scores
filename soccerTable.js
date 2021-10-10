@@ -2,6 +2,15 @@ let today = new Date();
 let date = today;
 let dataLoaded = false;
 
+$("#navBar").load("nav.html");
+
+
+// window.onload = function(){
+//     $.get("nav.html", function(data){
+//         $("#navBar").html(data);
+//     })
+// }
+
 function loadData(){
     let request = new XMLHttpRequest();
 

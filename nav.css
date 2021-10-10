@@ -1,0 +1,21 @@
+
+.nav {
+    position: fixed;
+    width: 100%;
+    background-color: green;
+    color: white;
+    height: 50px;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.navButton {
+    background-color: transparent;
+    border: 1px solid white;
+    height: 50px;
+    width: 100px;
+}

@@ -56,10 +56,12 @@ function loadData(){
         }
 
         //Removes "" from strings in array
-        let y = matchUp[0].length;
-        for(let j=0; j<x; j++){
-            for(let k=0; k<y; k++){
-                matchUp[j][k] = matchUp[j][k].replace(/['"]+/g, '');
+        if(x != 0 ){
+            let y = matchUp[0].length;
+            for(let j=0; j<x; j++){
+                for(let k=0; k<y; k++){
+                    matchUp[j][k] = matchUp[j][k].replace(/['"]+/g, '');
+                }
             }
         }
 
@@ -96,6 +98,11 @@ function loadData(){
             }
         }
 
+        if(x == 0) {
+            document.getElementById('scottishPremiership').innerHTML = 'No Games Today';
+            document.getElementById('superliga').innerHTML = 'No Games Today';
+        }
+
     }
     request.send();
 }
@@ -125,7 +132,7 @@ function submitchange() {
 console.log(dataLoaded);
 
 function checkDataLoaded(){
-    console.log('test')
+    
     if(dataLoaded == false) {
         console.log('data not loaded');
         document.getElementById('scores').style.display = 'none';

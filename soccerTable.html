@@ -3,18 +3,20 @@
 <html>
 
 	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="soccerTable.js"></script>
 		<link rel="stylesheet" type="text/css" href="soccerTable.css">
 
 		<title>World Soccer Table</title>
 	</head>
-	<nav class='nav'>
+	<nav class='nav' id='navBar'>
 		<button class='navButton'><a href="soccerScores.html">Scores</a></button> |
 		<button class='navButton'><a href="soccerTable.html">Table</a></button>
 	</nav>
 	<br><br>
 
 	<body onload="loadData()" onload="checkDataLoaded()">
+		<div id='navBar'></div>
 		<div>
 			<div class='pageHeader'><h1>2020/21 League Tables</h1>
 				<select name='league' id='league'>
