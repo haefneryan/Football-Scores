@@ -67,20 +67,33 @@ function loadData(){
         console.log(dataLoaded);
 
         //Loops through array to populate Scottish Premiership Scores
+        let scottishPremiershipCount = 0;
         for(let j=0; j<x; j++){
             if(matchUp[j][0] == 'Premiership'){
                 document.getElementById('scottishPremiershipLogo').src = matchUp[j][5];
                 document.getElementById('scottishPremiershipName').innerHTML = 'Scottish ' + matchUp[j][0];
                 document.getElementById('scottishPremiership').innerHTML += "<br><div id=matchUp_'" + j + "' class='matchUp'><div class='home'><img src=" + matchUp[j][6] + " class='teamLogo'><div id='homeTeam_" + j + "' class='val homeTeam'>" + matchUp[j][1] + "</div><div id='homeTeamScore_" + j + "'class='val score'>" + matchUp[j][2] + "</div></div><div class='val' id='dash'>-</div><div class='away'><div id='awayTeamScore_" + j + "' class='val score'>" + matchUp[j][3] + "</div><div id='awayTeam_" + j + "' class='val awayTeam'>" + matchUp[j][4] + "<img src=" + matchUp[j][7] + " class='teamLogo'></div></div></div>" 
+                scottishPremiershipCount++;
             }
         }
+
+        if (scottishPremiershipCount == 0) {
+            document.getElementById('scottishPremiership').innerHTML = '<br>No Games Today';
+        }
+
         //Loops through array to populate Danish Superliga Scores
+        let superligaCount = 0;
         for(let j=0; j<x; j++){
             if(matchUp[j][0] == 'Superliga'){
                 document.getElementById('superligaLogo').src = matchUp[j][5];
                 document.getElementById('superligaName').innerHTML = 'Danish ' + matchUp[j][0];
                 document.getElementById('superliga').innerHTML += "<br><div id=matchUp_'" + j + "' class='matchUp'><div class='home'><img src=" + matchUp[j][6] + " class='teamLogo'><div id='homeTeam_" + j + "' class='val homeTeam'>" + matchUp[j][1] + "</div><div id='homeTeamScore_" + j + "'class='val score'>" + matchUp[j][2] + "</div></div><div class='val' id='dash'>-</div><div class='away'><div id='awayTeamScore_" + j + "' class='val score'>" + matchUp[j][3] + "</div><div id='awayTeam_" + j + "' class='val awayTeam'>" + matchUp[j][4] + "<img src=" + matchUp[j][7] + " class='teamLogo'></div></div></div>"  
+                superligaCount++;
             }
+        }
+
+        if (superligaCount == 0) {
+            document.getElementById('superliga').innerHTML = '<br>No Games Today';
         }
 
         //Styles score background depending on result

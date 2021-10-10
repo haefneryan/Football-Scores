@@ -4,7 +4,6 @@ let dataLoaded = false;
 
 $("#navBar").load("nav.html");
 
-
 // window.onload = function(){
 //     $.get("nav.html", function(data){
 //         $("#navBar").html(data);
@@ -15,9 +14,16 @@ function loadData(){
     let request = new XMLHttpRequest();
 
     let api_token = 'CHPO1UMSVjcgZA8oI6xmeLIxzAtVDXeiY6fypOF7npPkB7oqvjniWkg5Z2np';
-    //let includes = '&include=localTeam,visitorTeam,events,league';
+    let seasonID = null;
+    console.log(seasonID)
+    console.log(document.getElementById('season').value);
+    do {
+        seasonID = 18369; //ID for current season
+        if (document.getElementById('season').value == '2020/21') { seasonID = 17141}
+        if (document.getElementById('season').value == '2019/20') { seasonID = 16222}
+    } while (seasonID == null)
     //console.log(date);
-    let url = 'https://soccer.sportmonks.com/api/v2.0/standings/season/17141?api_token=' + api_token;
+    let url = 'https://soccer.sportmonks.com/api/v2.0/standings/season/' + seasonID + '?api_token=' + api_token;
 
     request.open('GET', url, true);
     let table = [];
@@ -32,7 +38,6 @@ function loadData(){
         }
 
         let x = response.data[0].standings.data.length;
-        console.log(x);
         for(let i=0; i<x; i++){
             table[i] = [
                 JSON.stringify(response.data[0].standings.data[i].position),
@@ -42,7 +47,10 @@ function loadData(){
                 JSON.stringify(response.data[0].standings.data[i].overall.won),
                 JSON.stringify(response.data[0].standings.data[i].overall.draw),
                 JSON.stringify(response.data[0].standings.data[i].overall.lost)
-            ];  
+            ];
+            if (seasonID == 16222) {
+                table[i][2] = JSON.stringify(response.data[0].standings.data[i].points);
+            }
         }
 
         //Removes "" from strings in array
@@ -54,7 +62,7 @@ function loadData(){
         }
 
         console.log(table);
-        console.log(dataLoaded);
+        //console.log(dataLoaded);
 
         for(let j=0; j<x; j++){
             //if(table[j][0] == 'Premiership'){
@@ -77,26 +85,24 @@ function loadData(){
 function submitchange() {
     
     document.getElementById('scottishPremiershipTable').innerHTML = '';
-    document.getElementById('superliga').innerHTML = '';
+    //document.getElementById('superliga').innerHTML = '';
 
-    if(document.getElementById('league').value == 'scottishPremiership_select'){
-        document.getElementById('superliga_scores').style.display = 'none';
-        document.getElementById('scottishPremiership_scores').style.display = 'block';
-    }
-    if(document.getElementById('league').value == 'superliga_select'){
-        document.getElementById('scottishPremiership_scores').style.display = 'none';
-        document.getElementById('superliga_scores').style.display = 'block';
-    }
-    if(document.getElementById('league').value == 'all_select'){
-        document.getElementById('scottishPremiership_scores').style.display = 'block';
-        document.getElementById('superliga_scores').style.display = 'block';
-    }
+    // if(document.getElementById('league').value == 'scottishPremiership_select'){
+    //     document.getElementById('superliga_scores').style.display = 'none';
+    //     document.getElementById('scottishPremiership_scores').style.display = 'block';
+    // }
+    // if(document.getElementById('league').value == 'superliga_select'){
+    //     document.getElementById('scottishPremiership_scores').style.display = 'none';
+    //     document.getElementById('superliga_scores').style.display = 'block';
+    // }
+    // if(document.getElementById('league').value == 'all_select'){
+    //     document.getElementById('scottishPremiership_scores').style.display = 'block';
+    //     document.getElementById('superliga_scores').style.display = 'block';
+    // }
 
-    date = document.getElementById('date').value;
+    // date = document.getElementById('date').value;
     loadData();
 }
-
-console.log(dataLoaded);
 
 function checkDataLoaded(){
     console.log('test')

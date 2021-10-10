@@ -12,7 +12,7 @@
 	<br><br>
 	
 	<body onload="loadData()" onload="checkDataLoaded()">
-		<h1>2020/21 League Tables</h1>
+		<h1>League Table</h1>
 		<nav class='nav' id='navBar'>
 			<button class='navButton'><a href="soccerScores.html">Scores</a></button> |
 			<button class='navButton'><a href="soccerTable.html">Table</a></button>
@@ -23,7 +23,12 @@
 				<select name='league' id='league'>
 					<option value='all_select'>All Leagues</option>
 					<option value='scottishPremiership_select'>Scottish Premiership</option>
-					<option value='superliga_select'>Superliga</option>
+					<!-- <option value='superliga_select'>Superliga</option> -->
+				</select>
+				<select name='season' id='season'>
+					<option value='2021/22'>2021/22</option>
+					<option value='2020/21'>2020/21</option>
+					<option value='2019/20'>2019/20</option>
 				</select>
 				<button id='submit' onclick='submitchange()'>Submit</button>
 			</div>
@@ -37,12 +42,12 @@
 				</div>
 				<br>
 				<div>
-				<div id='superliga_scores' class='leagues'>
+				<!-- <div id='superliga_scores' class='leagues'>
 							<h2 id='superligaName' class='header'>Danish Superliga</h2>
-							<!-- <img id='superligaLogo' class='logo'> -->
+							<img id='superligaLogo' class='logo'>
 						<div id='superliga'></div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 		<br><br>
