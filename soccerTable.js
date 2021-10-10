@@ -37,10 +37,11 @@ function loadData(){
             table[i] = [
                 JSON.stringify(response.data[0].standings.data[i].position),
                 JSON.stringify(response.data[0].standings.data[i].team_name),
-                JSON.stringify(response.data[0].standings.data[i].overall.points)/*
-                JSON.stringify(response.data[i].league.data.logo_path),
-                JSON.stringify(response.data[i].localTeam.data.logo_path),
-                JSON.stringify(response.data[i].visitorTeam.data.logo_path)*/
+                JSON.stringify(response.data[0].standings.data[i].overall.points),
+                JSON.stringify(response.data[0].standings.data[i].overall.games_played),
+                JSON.stringify(response.data[0].standings.data[i].overall.won),
+                JSON.stringify(response.data[0].standings.data[i].overall.draw),
+                JSON.stringify(response.data[0].standings.data[i].overall.lost)
             ];  
         }
 
@@ -57,17 +58,17 @@ function loadData(){
 
         for(let j=0; j<x; j++){
             //if(table[j][0] == 'Premiership'){
-                document.getElementById('scottishPremiershipTableHeader').innerHTML = "<div><div class='position'>Pos</div><div class='teamName'>Club name</div><div class='tableData'>Pts</div></div>"
-                document.getElementById('scottishPremiershipTable').innerHTML += "<div id=position_'" + j + "' class='tableRow'><div class='position'>" + table[j][0] + "</div><div class='teamName'>" + table[j][1] + "</div><div class='tableData'>" + table[j][2] + "</div></div>" 
+                document.getElementById('scottishPremiershipTableHeader').innerHTML = "<div><div class='position'>Pos</div><div class='teamName'>Club</div><div class='tableData'>GP</div><div class='tableData'>W</div><div class='tableData'>D</div><div class='tableData'>L</div><div class='tableData'>Pts</div></div>"
+                document.getElementById('scottishPremiershipTable').innerHTML += "<div id=position_'" + j + "' class='tableRow'><div class='position'>" + table[j][0] + "</div><div class='teamName'>" + table[j][1] + "</div><div class='tableData'>" + table[j][3] + "</div><div class='tableData'>" + table[j][4] + "</div><div class='tableData'>" + table[j][5] + "</div><div class='tableData'>" + table[j][6] + "</div><div class='tableData'>" + table[j][2] + "</div></div>";
             //}
         }
-        for(let j=0; j<x; j++){
-            if(table[j][0] == 'Superliga'){
-                document.getElementById('superligaLogo').src = table[j][5];
-                document.getElementById('superligaName').innerHTML = 'Danish ' + table[j][0];
-                document.getElementById('superliga').innerHTML += "<br><div id=table_'" + j + "' class='table'><div class='home'><img src=" + table[j][6] + " class='teamLogo'><div id='homeTeam_" + j + "' class='val homeTeam'>" + table[j][1] + "</div><div id='homeTeamScore_" + j + "'class='val score'>" + table[j][2] + "</div></div><div class='val' id='dash'>-</div><div class='away'><div id='awayTeamScore_" + j + "' class='val score'>" + table[j][3] + "</div><div id='awayTeam_" + j + "' class='val awayTeam'>" + table[j][4] + "<img src=" + table[j][7] + " class='teamLogo'></div></div></div>"  
-            }
-        }
+        // for(let j=0; j<x; j++){
+        //     if(table[j][0] == 'Superliga'){
+        //         document.getElementById('superligaLogo').src = table[j][5];
+        //         document.getElementById('superligaName').innerHTML = 'Danish ' + table[j][0];
+        //         document.getElementById('superliga').innerHTML += "<br><div id=table_'" + j + "' class='table'><div class='home'><img src=" + table[j][6] + " class='teamLogo'><div id='homeTeam_" + j + "' class='val homeTeam'>" + table[j][1] + "</div><div id='homeTeamScore_" + j + "'class='val score'>" + table[j][2] + "</div></div><div class='val' id='dash'>-</div><div class='away'><div id='awayTeamScore_" + j + "' class='val score'>" + table[j][3] + "</div><div id='awayTeam_" + j + "' class='val awayTeam'>" + table[j][4] + "<img src=" + table[j][7] + " class='teamLogo'></div></div></div>"  
+        //     }
+        // }
 
     }
     request.send();

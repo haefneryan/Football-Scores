@@ -2,8 +2,8 @@ let today = new Date();
 let date = today;
 let dataLoaded = false;
 
+//Function to populate date input date with today's date
 function getDate() {
-    //let today = new Date();
     let dd = today.getDate();
     let mm = today.getMonth()+1; //January is 0!
     let yyyy = today.getFullYear();
@@ -24,6 +24,7 @@ function getDate() {
 function loadData(){
     let request = new XMLHttpRequest();
 
+    //Sets API URL, API token, and data includes
     let api_token = 'CHPO1UMSVjcgZA8oI6xmeLIxzAtVDXeiY6fypOF7npPkB7oqvjniWkg5Z2np';
     let includes = '&include=localTeam,visitorTeam,events,league';
     //console.log(date);
@@ -37,10 +38,7 @@ function loadData(){
         dataLoaded = true;
         console.log(response);
 
-        if(JSON.stringify(response.data) == []) {
-            console.log('the response is null');
-        }
-
+        //Parses response data into array
         let x = response.data.length;
         for(let i=0; i<x; i++){
             matchUp[i] = [
@@ -68,6 +66,7 @@ function loadData(){
         console.log(matchUp);
         console.log(dataLoaded);
 
+        //Loops through array to populate Scottish Premiership Scores
         for(let j=0; j<x; j++){
             if(matchUp[j][0] == 'Premiership'){
                 document.getElementById('scottishPremiershipLogo').src = matchUp[j][5];
@@ -75,6 +74,7 @@ function loadData(){
                 document.getElementById('scottishPremiership').innerHTML += "<br><div id=matchUp_'" + j + "' class='matchUp'><div class='home'><img src=" + matchUp[j][6] + " class='teamLogo'><div id='homeTeam_" + j + "' class='val homeTeam'>" + matchUp[j][1] + "</div><div id='homeTeamScore_" + j + "'class='val score'>" + matchUp[j][2] + "</div></div><div class='val' id='dash'>-</div><div class='away'><div id='awayTeamScore_" + j + "' class='val score'>" + matchUp[j][3] + "</div><div id='awayTeam_" + j + "' class='val awayTeam'>" + matchUp[j][4] + "<img src=" + matchUp[j][7] + " class='teamLogo'></div></div></div>" 
             }
         }
+        //Loops through array to populate Danish Superliga Scores
         for(let j=0; j<x; j++){
             if(matchUp[j][0] == 'Superliga'){
                 document.getElementById('superligaLogo').src = matchUp[j][5];
@@ -83,6 +83,7 @@ function loadData(){
             }
         }
 
+        //Styles score background depending on result
         for(let i=0; i<x; i++){
             if(matchUp[i][2] > matchUp[i][3]){
                 document.getElementById('homeTeamScore_' + i).style.backgroundColor = 'green';
@@ -98,9 +99,10 @@ function loadData(){
             }
         }
 
+        //Populate if no games are played on selected day
         if(x == 0) {
-            document.getElementById('scottishPremiership').innerHTML = 'No Games Today';
-            document.getElementById('superliga').innerHTML = 'No Games Today';
+            document.getElementById('scottishPremiership').innerHTML = '<br>No Games Today<br>';
+            document.getElementById('superliga').innerHTML = '<br>No Games Today<br>';
         }
 
     }
@@ -109,9 +111,11 @@ function loadData(){
 
 function submitchange() {
     
+    //Clears out what was in score divs
     document.getElementById('scottishPremiership').innerHTML = '';
     document.getElementById('superliga').innerHTML = '';
 
+    //Turn off and on displaying scores depending on user input
     if(document.getElementById('league').value == 'scottishPremiership_select'){
         document.getElementById('superliga_scores').style.display = 'none';
         document.getElementById('scottishPremiership_scores').style.display = 'block';
@@ -130,14 +134,4 @@ function submitchange() {
 }
 
 console.log(dataLoaded);
-
-function checkDataLoaded(){
-    
-    if(dataLoaded == false) {
-        console.log('data not loaded');
-        document.getElementById('scores').style.display = 'none';
-        //document.getElementById('scores').innerHTML = 'No Games Today';
-    }
-}
-
 

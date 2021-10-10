@@ -8,15 +8,16 @@
 
 		<title>World Soccer Scores</title>
 	</head>
-	<nav class='nav'>
-		<button class='navButton'><a href="soccerScores.html">Scores</a></button> |
-		<button class='navButton'><a href="soccerTable.html">Table</a></button>
-	</nav>
 	<br><br>
 	
-	<body onload="getDate()" onload="loadData()" onload="checkDataLoaded()">
+	<body onload="getDate()" onload="loadData()">
+		<h1>Scores</h1>
+		<nav class='nav'>
+			<button class='navButton'><a href="soccerScores.html">Scores</a></button> |
+			<button class='navButton'><a href="soccerTable.html">Table</a></button>
+		</nav>
+		<br>
 		<div>
-			<h1>Scores</h1>
 			<select name='league' id='league'>
 				<option value='all_select'>All Leagues</option>
 				<option value='scottishPremiership_select'>Scottish Premiership</option>
@@ -30,14 +31,14 @@
 					<div class='headerBox'>
 						<h2 id='scottishPremiershipName' class='header'>Scottish Premiership</h2><img id='scottishPremiershipLogo' class='logo'>
 					</div>
-					<div id='scottishPremiership'>No Games Today</div>
+					<div id='scottishPremiership'><br>No Games Today<br></div>
 					<br>
 				</div>
 				<div id='superliga_scores' class='leagues'>
 					<div class='headerBox'>
 						<h2 id='superligaName' class='header'>Danish Superliga</h2><img id='superligaLogo' class='logo'>
 					</div>
-					<div id='superliga'>No Games Today</div>
+					<div id='superliga'><br>No Games Today<br></div>
 				</div>
 			</div>
 		</div>

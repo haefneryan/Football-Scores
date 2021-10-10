@@ -9,16 +9,17 @@
 
 		<title>World Soccer Table</title>
 	</head>
-	<nav class='nav' id='navBar'>
-		<button class='navButton'><a href="soccerScores.html">Scores</a></button> |
-		<button class='navButton'><a href="soccerTable.html">Table</a></button>
-	</nav>
 	<br><br>
-
+	
 	<body onload="loadData()" onload="checkDataLoaded()">
-		<div id='navBar'></div>
+		<h1>2020/21 League Tables</h1>
+		<nav class='nav' id='navBar'>
+			<button class='navButton'><a href="soccerScores.html">Scores</a></button> |
+			<button class='navButton'><a href="soccerTable.html">Table</a></button>
+		</nav>
+		<br>
 		<div>
-			<div class='pageHeader'><h1>2020/21 League Tables</h1>
+			<div class='pageHeader'>
 				<select name='league' id='league'>
 					<option value='all_select'>All Leagues</option>
 					<option value='scottishPremiership_select'>Scottish Premiership</option>
@@ -29,7 +30,7 @@
 			<br><br>
 			<div id='page'>
 				<div id='scottishPremiership'>
-					<h2 id='scottishPremiershipName' class='header'>Scottish Premiership</h2>
+					<div class='header'><h2 id='scottishPremiershipName' class='header'>Scottish Premiership</h2></div>
 					<div id='scottishPremiershipTableHeader' class='headerBox'></div>
 					<!-- <img id='scottishPremiershipLogo' class='logo'> -->
 					<div id='scottishPremiershipTable'></div>
