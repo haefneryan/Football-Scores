@@ -1,8 +1,7 @@
 let today = new Date();
 let date = today;
-let dataLoaded = false;
 
-$("#navBar").load("nav.html");
+//$("#navBar").load("nav.html");
 
 // window.onload = function(){
 //     $.get("nav.html", function(data){
@@ -30,7 +29,6 @@ function loadData(){
 
     request.onload = function() {
         let response = JSON.parse(this.response);
-        dataLoaded = true;
         console.log(response);
 
         if(JSON.stringify(response.data) == []) {
@@ -62,7 +60,6 @@ function loadData(){
         }
 
         console.log(table);
-        //console.log(dataLoaded);
 
         for(let j=0; j<x; j++){
             //if(table[j][0] == 'Premiership'){
@@ -103,14 +100,3 @@ function submitchange() {
     // date = document.getElementById('date').value;
     loadData();
 }
-
-function checkDataLoaded(){
-    console.log('test')
-    if(dataLoaded == false) {
-        console.log('data not loaded');
-        document.getElementById('scores').style.display = 'none';
-        //document.getElementById('scores').innerHTML = 'No Games Today';
-    }
-}
-
-

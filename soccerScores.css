@@ -11,23 +11,23 @@ p {
 }
 
 .away {
-    width: 45%;
+    width: 40%;
     height: 70px;
     text-align: left;
     display: inline-block;
-    padding-left: 20px;
+    padding: 10px;
     vertical-align: middle;
-    margin: auto;
+    padding: auto;
 }
 
 .home {
-    width: 45%;
+    width: 40%;
     height: 70px;
     text-align: right;
     display: inline-block;
-    padding-right: 20px;
+    padding: 10px;
     vertical-align: middle;
-    margin: auto;
+    padding: auto;
 }
 
 #dash {
@@ -38,10 +38,14 @@ p {
 }
 
 .homeTeam {
+    display: inline;
+    width: 40%;
     padding-right: 20px;
 }
 
 .awayTeam {
+    display: inline;
+    width: 40%;
     padding-left: 20px;
 }
 
@@ -72,12 +76,27 @@ p {
     background-color: rgb(255, 255, 255, 1.0);
 }
 
-.teamLogo {
-    display: inline-block;
+.teamLogoHome {
+    float: left;
+    /* display: inline-block; */
     height: 50px;
     width: 50px;
     vertical-align:middle;
     padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+
+.teamLogoAway {
+    float: right;
+    /* display: inline-block; */
+    height: 50px;
+    width: 50px;
+    vertical-align:middle;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 .header {
@@ -124,4 +143,11 @@ a {
     border: 1px solid white;
     height: 50px;
     width: 100px;
+}
+
+#dash {
+    display: inline;
+    height: 70px;
+    text-align: center;
+    vertical-align: middle;
 }

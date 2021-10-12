@@ -72,13 +72,13 @@ function loadData(){
             if(matchUp[j][0] == 'Premiership'){
                 document.getElementById('scottishPremiershipLogo').src = matchUp[j][5];
                 document.getElementById('scottishPremiershipName').innerHTML = 'Scottish ' + matchUp[j][0];
-                document.getElementById('scottishPremiership').innerHTML += "<br><div id=matchUp_'" + j + "' class='matchUp'><div class='home'><img src=" + matchUp[j][6] + " class='teamLogo'><div id='homeTeam_" + j + "' class='val homeTeam'>" + matchUp[j][1] + "</div><div id='homeTeamScore_" + j + "'class='val score'>" + matchUp[j][2] + "</div></div><div class='val' id='dash'>-</div><div class='away'><div id='awayTeamScore_" + j + "' class='val score'>" + matchUp[j][3] + "</div><div id='awayTeam_" + j + "' class='val awayTeam'>" + matchUp[j][4] + "<img src=" + matchUp[j][7] + " class='teamLogo'></div></div></div>" 
+                document.getElementById('scottishPremiership').innerHTML += "<br><div id=matchUp_'" + j + "' class='matchUp'><div class='home'><img src=" + matchUp[j][6] + " class='teamLogoHome'><div id='homeTeam_" + j + "' class='homeTeam'>" + matchUp[j][1] + "</div><div id='homeTeamScore_" + j + "'class='val score'>" + matchUp[j][2] + "</div></div><div class='val' id='dash'>-</div><div class='away'><div id='awayTeamScore_" + j + "' class='val score'>" + matchUp[j][3] + "</div><div id='awayTeam_" + j + "' class='awayTeam'>" + matchUp[j][4] + "</div><img src=" + matchUp[j][7] + " class='teamLogoAway'></div></div>" 
                 scottishPremiershipCount++;
             }
         }
 
         if (scottishPremiershipCount == 0) {
-            document.getElementById('scottishPremiership').innerHTML = '<br>No Games Today';
+            document.getElementById('scottishPremiership').innerHTML = '<br>No Games';
         }
 
         //Loops through array to populate Danish Superliga Scores
@@ -87,13 +87,13 @@ function loadData(){
             if(matchUp[j][0] == 'Superliga'){
                 document.getElementById('superligaLogo').src = matchUp[j][5];
                 document.getElementById('superligaName').innerHTML = 'Danish ' + matchUp[j][0];
-                document.getElementById('superliga').innerHTML += "<br><div id=matchUp_'" + j + "' class='matchUp'><div class='home'><img src=" + matchUp[j][6] + " class='teamLogo'><div id='homeTeam_" + j + "' class='val homeTeam'>" + matchUp[j][1] + "</div><div id='homeTeamScore_" + j + "'class='val score'>" + matchUp[j][2] + "</div></div><div class='val' id='dash'>-</div><div class='away'><div id='awayTeamScore_" + j + "' class='val score'>" + matchUp[j][3] + "</div><div id='awayTeam_" + j + "' class='val awayTeam'>" + matchUp[j][4] + "<img src=" + matchUp[j][7] + " class='teamLogo'></div></div></div>"  
+                document.getElementById('superliga').innerHTML += "<br><div id=matchUp_'" + j + "' class='matchUp'><div class='home'><img src=" + matchUp[j][6] + " class='teamLogoHome'><div id='homeTeam_" + j + "' class='homeTeam'>" + matchUp[j][1] + "</div><div id='homeTeamScore_" + j + "'class='val score'>" + matchUp[j][2] + "</div></div><div class='val' id='dash'>-</div><div class='away'><div id='awayTeamScore_" + j + "' class='val score'>" + matchUp[j][3] + "</div><div id='awayTeam_" + j + "' class='awayTeam'>" + matchUp[j][4] + "</div><img src=" + matchUp[j][7] + " class='teamLogoAway'></div></div>" 
                 superligaCount++;
             }
         }
 
         if (superligaCount == 0) {
-            document.getElementById('superliga').innerHTML = '<br>No Games Today';
+            document.getElementById('superliga').innerHTML = '<br>No Games';
         }
 
         //Styles score background depending on result
@@ -114,8 +114,8 @@ function loadData(){
 
         //Populate if no games are played on selected day
         if(x == 0) {
-            document.getElementById('scottishPremiership').innerHTML = '<br>No Games Today<br>';
-            document.getElementById('superliga').innerHTML = '<br>No Games Today<br>';
+            document.getElementById('scottishPremiership').innerHTML = '<br>No Games<br>';
+            document.getElementById('superliga').innerHTML = '<br>No Games<br>';
         }
 
     }
