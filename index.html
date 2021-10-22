@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<script src="soccerScores.js"></script>
+		<link rel="stylesheet" type="text/css" href="soccerScores.css">
+
+		<title>World Soccer Scores</title>
+	</head>
+	<br><br>
+	
+	<body onload="getDate()" onload="loadData()">
+		<h1>Scores</h1>
+		<nav class='nav'>
+			<button class='navButton'><a href="soccerScores.html">Scores</a></button> |
+			<button class='navButton'><a href="soccerTable.html">Table</a></button>
+		</nav>
+		<br>
+		<div>
+			<select name='league' id='league'>
+				<option value='all_select'>All Leagues</option>
+				<option value='scottishPremiership_select'>Scottish Premiership</option>
+				<option value='superliga_select'>Superliga</option>
+			</select>
+			<input type='date' id='date' name='date'>
+			<button id='submit' onclick='submitchange()'>Submit</button>
+			<br><br>
+			<div id='scores'>
+				<div id='scottishPremiership_scores' class='leagues'>
+					<div class='headerBox'>
+						<h2 id='scottishPremiershipName' class='header'>Scottish Premiership</h2><img id='scottishPremiershipLogo' class='logo'>
+					</div>
+					<div id='scottishPremiership'><br>No Games<br></div>
+					<br>
+				</div>
+				<div id='superliga_scores' class='leagues'>
+					<div class='headerBox'>
+						<h2 id='superligaName' class='header'>Danish Superliga</h2><img id='superligaLogo' class='logo'>
+					</div>
+					<div id='superliga'><br>No Games<br></div>
+				</div>
+			</div>
+		</div>
+		<br><br>
+
+	</body>
+
+</html>
+
