@@ -100,4 +100,11 @@ a {
     border: 1px solid white;
     height: 50px;
     width: 100px;
+    color: white;
+}
+
+.navButton:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
 }
