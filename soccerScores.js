@@ -17,17 +17,17 @@ function getDate() {
     } 
   
     today = yyyy + '-' + mm + '-' + dd;
-    //console.log(today);
+    date = today;
     document.getElementById("date").value = today;
 }
 
 function loadData(){
+    console.log(today);
     let request = new XMLHttpRequest();
 
     //Sets API URL, API token, and data includes
     let api_token = 'CHPO1UMSVjcgZA8oI6xmeLIxzAtVDXeiY6fypOF7npPkB7oqvjniWkg5Z2np';
     let includes = '&include=localTeam,visitorTeam,events,league';
-    //console.log(date);
     let url = 'https://soccer.sportmonks.com/api/v2.0/fixtures/date/' + date + '?api_token=' + api_token + includes;
 
     request.open('GET', url, true);
@@ -145,6 +145,3 @@ function submitchange() {
     date = document.getElementById('date').value;
     loadData();
 }
-
-console.log(dataLoaded);
-

@@ -3,14 +3,14 @@
 <html>
 
 	<head>
-		<script src="soccerScores.js"></script>
 		<link rel="stylesheet" type="text/css" href="soccerScores.css">
+		<script src="soccerScores.js" defer></script>
 
 		<title>World Soccer Scores</title>
 	</head>
 	<br><br>
 	
-	<body onload="getDate()" onload="loadData()">
+	<body onload="getDate(); loadData(today)">
 		<h1>Scores</h1>
 		<nav class='nav'>
 			<a href="soccerScores.html"><button class='navButton'>Scores</button></a> |
@@ -31,14 +31,14 @@
 					<div class='headerBox'>
 						<h2 id='scottishPremiershipName' class='header'>Scottish Premiership</h2><img id='scottishPremiershipLogo' class='logo'>
 					</div>
-					<div id='scottishPremiership'><br>No Games<br></div>
+					<div id='scottishPremiership'><br></div>
 					<br>
 				</div>
 				<div id='superliga_scores' class='leagues'>
 					<div class='headerBox'>
 						<h2 id='superligaName' class='header'>Danish Superliga</h2><img id='superligaLogo' class='logo'>
 					</div>
-					<div id='superliga'><br>No Games<br></div>
+					<div id='superliga'><br></div>
 				</div>
 			</div>
 		</div>
